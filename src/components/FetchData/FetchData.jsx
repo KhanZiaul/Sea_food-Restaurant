@@ -6,6 +6,7 @@ import './Fetch.css'
 const FetchData = () => {
 
     const [foods,setFoods] = useState([]);
+    const [food,setFood] = useState([])
 
     useEffect(()=>{
         fetch('data.json')
@@ -14,8 +15,9 @@ const FetchData = () => {
     },[])
     // console.log(foods)
 
-    function addToCart(food){
-        console.log(food)
+    function addToCart(singleFood){
+        let newCart = [...food,singleFood]
+        setFood(newCart)
     }
 
     return (
@@ -30,7 +32,7 @@ const FetchData = () => {
             }
             </div>
             <div>
-                <OrderList></OrderList>
+                <OrderList food={food}></OrderList>
             </div>
         </div>
     );

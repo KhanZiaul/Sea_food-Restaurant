@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Cards from '../Cards/Cards'
 import OrderList from '../OrderList/OrderList';
+import { addDb } from '../Utilities/storage';
 import './Fetch.css'
 
 const FetchData = () => {
@@ -18,6 +19,7 @@ const FetchData = () => {
     function addToCart(singleFood){
         let newCart = [...food,singleFood]
         setFood(newCart)
+        addDb(singleFood.idMeal)
     }
 
     return (

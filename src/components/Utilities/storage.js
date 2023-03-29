@@ -1,7 +1,18 @@
 function addDb(id){
 
     let setCarts = checkDb();
-    console.log(setCarts)
+    // console.log(setCarts)
+
+    let quantity = setCarts[id] ;
+    if(quantity){
+        let newquantity = quantity + 1;
+        setCarts[id] = newquantity ;
+    }
+    else{
+        setCarts[id] = 1 ;
+    }
+
+    localStorage.setItem('Set-Carts',JSON.stringify(setCarts));
 }
 
 function checkDb(id){

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Cards from '../Cards/Cards'
+import OrderList from '../OrderList/OrderList';
 import './Fetch.css'
 
 const FetchData = () => {
@@ -13,16 +14,23 @@ const FetchData = () => {
     },[])
     // console.log(foods)
 
+    function addToCart(food){
+        console.log(food)
+    }
+
     return (
         <div className='cards mt-5 p-5'>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-5'>
             {
-              foods.map((food) => <Cards key={food.idMeal} food={food}></Cards>)
-
+              foods.map((food) => <Cards 
+              key={food.idMeal}
+              food={food}
+              addToCart={addToCart}
+              ></Cards>)
             }
             </div>
             <div>
-                <h2 className='text-2xl text-center underline'>Order List</h2>
+                <OrderList></OrderList>
             </div>
         </div>
     );

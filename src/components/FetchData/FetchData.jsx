@@ -16,7 +16,20 @@ const FetchData = () => {
     },[])
     // console.log(foods)
 
+    useEffect(()=>{
 
+        let saveCart = [] ;
+        let getCart = checkDb();
+        for(let idMeal in getCart){     
+        let existsData = foods.find(fd => fd.idMeal === idMeal)
+        if(existsData){
+          let newQuantity = getCart[idMeal];
+          existsData.quantity = newQuantity ;
+          saveCart.push(existsData)
+        }
+        }
+        setFood(saveCart);
+    },[foods])
 
     function addToCart(singleFood){
 

@@ -27,4 +27,4 @@ function checkDb(id){
     }
     return setCarts ;
 }
-export{addDb} ;
+export{addDb,checkDb} ;

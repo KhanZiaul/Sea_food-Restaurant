@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Cards from '../Cards/Cards'
 import OrderList from '../OrderList/OrderList';
-import { addDb } from '../Utilities/storage';
+import { addDb, checkDb } from '../Utilities/storage';
 import './Fetch.css'
 
 const FetchData = () => {
@@ -16,9 +16,23 @@ const FetchData = () => {
     },[])
     // console.log(foods)
 
+
+
     function addToCart(singleFood){
-        let newCart = [...food,singleFood]
-        setFood(newCart)
+
+        // let newCart = [...food,singleFood]
+        let newCart = [];
+        let exixtsId = food.find(fd => fd.idMeal === singleFood.idMeal);
+        if(!exixtsId){
+            singleFood.quantity = 1 ;
+            newCart =[...food,singleFood] ;
+        }
+        else{
+            exixtsId.quantity = exixtsId.quantity + 1 ;
+            let remaining = food.filter(fd => fd.idMeal !== exixtsId.idMeal)
+            newCart = [...remaining,exixtsId]
+        }
+        setFood(newCart) ;
         addDb(singleFood.idMeal)
     }
 

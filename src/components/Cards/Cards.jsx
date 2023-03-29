@@ -12,6 +12,7 @@ const Cards = (props) => {
            <img className='rounded-xl' src={strMealThumb} alt=""/>
            <h2 className='text-center text-xl font-bold my-4'>{strMeal}</h2>
            <p className='text-xl font-medium mb-3'>Price : ${price}</p>
+           <p className='text-xl font-medium mb-3'>Ratings : {ratings} stars</p>
             </div>
            <p onClick={()=>addToCart(props.food)} className='text-center text-white bg-red-500 p-3 hover:bg-red-900 relative'>Add To Cart</p>
         </div>

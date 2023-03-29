@@ -14,7 +14,7 @@ const Cards = (props) => {
            <p className='text-xl font-medium mb-3'>Price : ${price}</p>
            <p className='text-xl font-medium mb-3'>Ratings : {ratings} stars</p>
             </div>
-           <p onClick={()=>addToCart(props.food)} className='text-center text-white bg-red-500 p-3 hover:bg-red-900 relative'>Add To Cart</p>
+           <p onClick={()=>addToCart(props.food)} className='text-center text-white bg-slate-600 p-3 hover:bg-green-900 relative cursor-pointer'>Add To Cart</p>
         </div>
     );
 };

@@ -16,7 +16,7 @@ const OrderList = ({food}) => {
     grandTotal = totalPrice + shipping + tax; 
 
     return (
-        <div className='bg-red-600 text-white rounded-lg p-5 sticky top-0'>
+        <div className='bg-slate-600 text-white rounded-lg p-5 sticky top-0'>
             <h2 className='text-2xl text-center underline'>Order List</h2>
             <p className='text-xl mt-5'>Price : ${totalPrice} </p>
             <p className='text-xl my-3'>Shipping : ${shipping} </p>
